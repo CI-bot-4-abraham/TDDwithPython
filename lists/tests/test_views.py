@@ -1,3 +1,4 @@
+from unittest import skip
 from lists.models import Item, List
 from django.core.urlresolvers import resolve
 from django.test import TestCase
