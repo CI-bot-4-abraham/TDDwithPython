@@ -1,5 +1,7 @@
 from django.db import models
 
+# random comment
+
 class List(models.Model):
     pass
 
