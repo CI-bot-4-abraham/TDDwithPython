@@ -1,6 +1,12 @@
 import sys
+from django.conf import settings
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
+
+# Don't want to run funcational tests on jenkins for now
+# HACK to disable them.
+if settings.DISABLE_FUNCATIONAL_TESTS:
+    class StaticLiveServerTestCase: pass
 
 class FunctionalTest(StaticLiveServerTestCase):
 
