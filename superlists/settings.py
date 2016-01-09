@@ -26,16 +26,23 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+DISABLE_FUNCATIONAL_TESTS = True
+
 
 # Application definition
 
 INSTALLED_APPS = (
     #'django.contrib.admin',
+    'django_jenkins',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'lists',
+)
+
+PROJECT_APPS = (
     'lists',
 )
 
@@ -83,4 +90,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, '../static')
+
+# Django Jenkins settings
+JENKINS_TASKS = (
+        'django_jenkins.tasks.run_pylint',
+        'django_jenkins.tasks.run_pyflakes',
+        'django_jenkins.tasks.run_sloccount',
+)
 
